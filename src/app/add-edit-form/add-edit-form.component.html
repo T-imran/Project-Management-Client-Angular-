@@ -1,0 +1,53 @@
+<div mat-dialog-title>
+  <h2>Task Form</h2>
+</div>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Task Title</mat-label>
+        <input matInput type="text" formControlName="taskTitle">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Task Description</mat-label>
+        <textarea matInput formControlName="taskDesc"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Task Start Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="taskStartDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Task End Date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="taskEndDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Total Hour</mat-label>
+        <input matInput type="number" formControlName="totalHour">
+      </mat-form-field>
+
+    </div>
+    <div class="row">
+      <mat-radio-group aria-label="Status" formControlName="status">
+        <mat-label><b>Status</b></mat-label>
+        <mat-radio-button value="notStarted">Not Started</mat-radio-button>
+        <mat-radio-button value="inProgress">In Progress</mat-radio-button>
+        <mat-radio-button value="complete">Complete</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button>Cancel</button>
+      <button mat-raised-button color="primary" type="submit">Save</button>
+    </div>
+  </div>
+</form>
+

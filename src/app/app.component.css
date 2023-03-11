@@ -1,0 +1,23 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  mat-sidenav-container {
+    height: calc(205vh - 115vh);
+  }
+  mat-sidenav{
+    width: 200px;
+    background-color: white;
+  }
+
+  .nav-list{
+    text-decoration: none;
+    color: #2f2f2f;
+    font-family: Bahnschrift;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+  }
