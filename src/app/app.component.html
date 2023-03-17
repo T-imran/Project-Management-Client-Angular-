@@ -1,27 +1,2 @@
-<p>
-  <mat-toolbar color="primary">
-    <button  (click)="opened=!opened" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon >menu</mat-icon>
-    </button>
-    <span>Task Management</span>
-    <span class="example-spacer"></span>
-    <button mat-raised-button (click)="logOut()">
-      Logout
-    </button>
-  </mat-toolbar>
-</p>
-
-<mat-sidenav-container >
-  <mat-sidenav [(opened)]="opened" mode="side">
-    <mat-list>
-      <mat-list-item><button mat-button [routerLink]="['/task']" class="nav-list"><mat-icon>home</mat-icon><span>Project</span></button></mat-list-item>
-      <mat-list-item><button mat-button [routerLink]="['/task']" class="nav-list"><mat-icon>home</mat-icon><span>Task</span></button></mat-list-item>
-      <mat-list-item><button mat-button [routerLink]="['/task']" class="nav-list"><mat-icon>home</mat-icon><span>Setting</span></button></mat-list-item>
-      <mat-list-item><button mat-button [routerLink]="['/task']" class="nav-list"><mat-icon>home</mat-icon><span>Info</span></button></mat-list-item>
-    </mat-list>
-
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<app-navbar *ngIf="isLoggedIn()"></app-navbar>
+<router-outlet name="primary"></router-outlet>

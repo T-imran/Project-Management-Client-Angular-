@@ -23,12 +23,13 @@ constructor(private loginService:LoginService) {
           if(val.present){
             console.log(val.token);
             this.user= val;
+            this.loginService.getUser(this.user);
             console.log(this.user);
             this.loginService.loginUser(val.token)
           }else{
             alert("Username or Password is Wrong")
           }
-  
+
         },
       error=>{
       })

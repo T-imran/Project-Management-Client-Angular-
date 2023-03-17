@@ -9,11 +9,14 @@ import {LoginService} from "./service/loginService/login.service";
 export class AppComponent {
   title = 'angular';
   opened : boolean = false;
-constructor(private loginService:LoginService) {
+constructor(public loginService:LoginService) {
 }
-
   logOut(){
     this.loginService.logout();
     location.reload();
+  }
+
+  isLoggedIn(){
+  return this.loginService.isLoggedIng();
   }
 }

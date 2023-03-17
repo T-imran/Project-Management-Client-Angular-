@@ -7,6 +7,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {resolve} from "@angular/compiler-cli";
+import {LoginComponent} from "../login/login.component";
+import {LoginService} from "../service/loginService/login.service";
 
 @Component({
   selector: 'app-task',
@@ -30,10 +32,10 @@ export class TaskComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private _dialogue: MatDialog, private _taskService:TaskService) {}
+  constructor(private _dialogue: MatDialog, public taskService:TaskService) {}
 
   ngOnInit():void{
-/*    this.getTaskList();*/
+    this.getTaskList();
   }
 
   applyFilter(event: Event) {
@@ -49,7 +51,7 @@ export class TaskComponent {
   }
 
  getTaskList(){
-   /* this._taskService.getTask().subscribe({
+    this.taskService.getTask().subscribe({
       next:(res) =>{
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.sort=this.sort;
@@ -58,15 +60,16 @@ export class TaskComponent {
       error:(err)=>{
         console.error(err);
       }
-    })*/
+    })
   }
 
   deleteTask(id:number){
-   /* this._taskService.deleteTask(id).subscribe({
+    this.taskService.deleteTask(id).subscribe({
       next: (res)=>{
         this.getTaskList();
       },
       error:console.log
-    })*/
+    })
   }
+
 }
